@@ -1,16 +1,15 @@
-#importaciones de librerias
+#importacion de librerias a utilizar
 import streamlit as st
 from streamlit_option_menu import option_menu
-from streamlit_lottie import st_lottie
-
-#importaciones de archivos
+#importacion de paginas externas
+import paginas.home,paginas.cosmicos
 
 st.set_page_config(
-    page_title="Machine Learning par deteccion de Neutrones"
+    page_title="Machine Learning para deteccion de Neutrino"
 )
 
-class Multiapp:
-    def __init__(self) :
+class MultiApp:
+    def __init__(self):
         self.apps=[]
     def add_app(self,title,function):
         self.apps.append({
@@ -21,15 +20,21 @@ class Multiapp:
         with st.sidebar:
             app=option_menu(
                 menu_title="Contenido",
-                options=["Inicio","Radiacion Cosmica","Neutrones","Detector Cherenkov","Hyper-Kamiokade","Machine Learning"],
+                options=["Inicio","Radiacion Cosmica","Neutrones","Detecgtor Cherenkov","Hyper - Kamiokade","Machine Learning"],
                 default_index=0,
                 styles={
-                    "container":{"padding":"5!important","background-color":"black"},
-                    "icon":{"color":"white","font-size":"23px"},
-                    "nav-link":{"color":"white","font-size":"20px","text-aling":"left","margin":"0px","--hover-color":"blue"},
-                    "nav-link-selected":{"background-color":"#1582A9"}
+                    "container":{"padding":"5!important","background-color":'black'},
+                    "icon":{
+                        "color":"white","font-size":"23px"
+                    },
+                    "nav-link":{
+                        "color":"white","font-size":"20px","text-aling":"left","margin":"0px","--hover-color":"blue"
+                    },
+                    "nav-link-selected":{"background-color":"#2F6CA6"},
                 }
             )
-            # if app=="Inicio":
-            #     pages.home.app()
+        if app=="Inicio":
+            paginas.home.app()
+        if app=="Radiacion Cosmica":
+            paginas.cosmicos.app()
     run()
