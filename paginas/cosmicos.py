@@ -2,11 +2,8 @@
 import streamlit as st
 import base64
 import numpy as np
-import matplotlib.pyplot as plt
-import plotly.express as px
 from streamlit_lottie import st_lottie
 import json
-import pandas as pd
 import plotly.graph_objects as go
 
 def load_lottiefile(filepath:str):
