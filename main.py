@@ -2,7 +2,7 @@
 import streamlit as st
 from streamlit_option_menu import option_menu
 #importacion de paginas externas
-import paginas.home,paginas.cosmicos,paginas.neutrones  # noqa: E401
+import paginas.home,paginas.cosmicos,paginas.neutrones,paginas.cherenkov ,paginas.kamiokande# noqa: E401
 
 st.set_page_config(
     page_title="Machine Learning para deteccion de Neutrino"
@@ -39,4 +39,8 @@ class MultiApp:
             paginas.cosmicos.app()
         if app=="Neutrones":
             paginas.neutrones.app()
+        if app=="Detector Cherenkov":
+            paginas.cherenkov.app()
+        if app=="Super-Kamiokande":
+            paginas.kamiokande.app()
     run()

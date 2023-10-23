@@ -42,7 +42,9 @@ def app():
     with st.container():
         
         nuclear=load_lottiefile("animations/animation_lnqrrf01.json")
+        ondas=load_lottiefile("animations\ondas.json")
         st.header("Tipos de Radiacion")
+        st_lottie(ondas,height=500)
         st_lottie(nuclear,height=500)
         col1,col2,col3,col4=st.columns(4)
         with col1:
@@ -101,51 +103,6 @@ def app():
             st.write(f"- Masa: {particulas_cosmicas[seleccion]['Masa']}")
             st.write(f"- Interacción: {particulas_cosmicas[seleccion]['Interacción']}")
         
-        # Definir el rango de tiempo y la frecuencia de muestreo
-        t = np.linspace(0, 2 * np.pi, 1000)
-        f = 1  # Frecuencia de las ondas
-        # Crear las ondas electromagnéticas
-        onda_radio = np.sin(2 * np.pi * f * t)
-        onda_luz_visible = np.sin(10 * 2 * np.pi * f * t)
-        onda_rayos_x = np.sin(100 * 2 * np.pi * f * t)
-        onda_gamma = np.sin(1000 * 2 * np.pi * f * t)
-        # Crear la figura con Plotly
-        fig = go.Figure()
-        fig.add_trace(go.Scatter(x=t, y=onda_radio, mode='lines', name='Onda de Radio'))
-        fig.add_trace(go.Scatter(x=t, y=onda_luz_visible, mode='lines', name='Luz Visible'))
-        fig.add_trace(go.Scatter(x=t, y=onda_rayos_x, mode='lines', name='Rayos X'))
-        fig.add_trace(go.Scatter(x=t, y=onda_gamma, mode='lines', name='Rayos Gamma'))
-
-        fig.update_layout(
-            title='Tipos de Ondas Electromagnéticas',
-            xaxis_title='Tiempo',
-            yaxis_title='Amplitud'
-        )
-
-        # Mostrar la figura en Streamlit
-        st.plotly_chart(fig)
         
-        # Datos de ejemplo de radiación alfa, beta y gamma
-        energias = [1, 2, 3, 4, 5]
-        radiacion_alfa = np.random.rand(len(energias))
-        radiacion_beta = np.random.rand(len(energias))
-        radiacion_gamma = np.random.rand(len(energias))
-
-        # Crear la figura con Plotly
-        fig = go.Figure()
-
-        # Agregar gráficos de barras para cada tipo de radiación
-        fig.add_trace(go.Bar(x=energias, y=radiacion_alfa, name='Radiación Alfa'))
-        fig.add_trace(go.Bar(x=energias, y=radiacion_beta, name='Radiación Beta'))
-        fig.add_trace(go.Bar(x=energias, y=radiacion_gamma, name='Radiación Gamma'))
-
-        fig.update_layout(
-            barmode='group',
-            title='Radiación (Alfa, Beta, Gamma) en función de la Energía',
-            xaxis_title='Energía (MeV)',
-            yaxis_title='Intensidad'
-        )
-
-        # Mostrar la figura en Streamlit
-        st.plotly_chart(fig)
+        
 

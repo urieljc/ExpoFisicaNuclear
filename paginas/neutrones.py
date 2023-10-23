@@ -11,7 +11,6 @@ from PIL import Image
 import plotly.express as px
 import pandas as pd
 from astropy import units as u
-from astropy.coordinates import get_sun, get_moon
 from astropy.time import Time
 import time
 
@@ -56,7 +55,4 @@ def app():
         # Mostrar el gráfico en Streamlit
         st.plotly_chart(fig)
         
-        video_file = open('animations/graficas.mp4', 'rb')
-        video_bytes = video_file.read()
-
-        st.video(video_bytes)
+        
