@@ -1,7 +1,5 @@
 import streamlit as st
 import numpy as np
-from scipy.constants import c, pi, epsilon_0,alpha
-from particle import Particle
 import matplotlib.pyplot as plt
 from PIL import Image
 import math
@@ -74,7 +72,7 @@ def app():
     st.write(f'Ángulo Cherenkov: {theta_c_degrees} grados')
 
 
-     # Calcular el rango de ángulos
+    # Calcular el rango de ángulos
     theta = np.linspace(0, 2 * np.pi, 100)
 
     # Calcular el ángulo crítico de Cherenkov

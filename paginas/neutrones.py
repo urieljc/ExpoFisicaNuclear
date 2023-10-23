@@ -2,17 +2,10 @@ import streamlit as st
 import base64
 from streamlit_lottie import st_lottie
 import json
-import matplotlib.pyplot as plt
 import numpy as np
 import plotly.graph_objects as go
-from scipy.integrate import solve_ivp
-from astropy import constants as const
 from PIL import Image
-import plotly.express as px
-import pandas as pd
 from astropy import units as u
-from astropy.time import Time
-import time
 
 def load_lottiefile(filepath:str):
             with open(filepath,"r")as f:

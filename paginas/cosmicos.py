@@ -1,7 +1,6 @@
 #importacion de librerias a utilizar
 import streamlit as st
 import base64
-import numpy as np
 from streamlit_lottie import st_lottie
 import json
 import plotly.graph_objects as go
