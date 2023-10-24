@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 from PIL import Image
 import math
+import base64
 
 def app():
     st.title("Detector de Agua Cherenkov",anchor=False)
@@ -79,7 +80,7 @@ def app():
     theta_c = np.arccos(c / (n * v))
 
     # Calcular la intensidad de Cherenkov en función del ángulo
-    I = np.where(theta <= theta_c, np.sin(theta), 0)
+    I = np.where(theta <= theta_c, np.sin(theta), 0)  # noqa: E741
 
     # Crear el gráfico con Matplotlib
     fig, ax = plt.subplots()
@@ -119,14 +120,10 @@ def app():
     # Mostrar el gráfico en Streamlit
     st.pyplot(fig)
 
-
-
-
-
-
-
-
-
-
-
-
+    file_=open("img/cherenkov.gif","rb")
+    content=file_.read()
+    data_url=base64.b64encode(content).decode("utf-8")
+    file_.close()
+    st.markdown(
+            f'<img src="data:image/gif;base64,{data_url}" >',unsafe_allow_html=True
+    )
