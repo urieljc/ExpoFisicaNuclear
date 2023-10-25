@@ -103,9 +103,6 @@ def app():
     # Load karate example
     adjmat, df = d3.import_example('karate')
 
-    label = df['label'].values
-    node_size = df['degree'].values
-
     d3.graph(adjmat)
     d3.set_node_properties(color=df['label'].values)
     d3.show()
