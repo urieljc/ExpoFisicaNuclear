@@ -21,7 +21,7 @@ class MultiApp:
             app=option_menu(
                 menu_title="Contenido",
                 options=["Inicio","Radiacion Cosmica","Neutrones","Detector Cherenkov","Super-Kamiokande","Machine Learning","Desarrollo"],  # noqa: E501
-                default_index=5,
+                default_index=0,
                 styles={
                     "container":{"padding":"5!important","background-color":'black'},
                     "icon":{
